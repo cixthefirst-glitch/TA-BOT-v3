@@ -117,7 +117,10 @@ def build_signal(symbol, candles):
     # Risk
     # ==========================
 
-    levels = calculate_trade_levels(candles, side)
+    if side is None:
+    return None
+
+levels = calculate_trade_levels(candles, side)
 
     if not passes_rr(levels):
         return None
